@@ -2,6 +2,7 @@ from direct.showbase.ShowBase import ShowBase
 from panda3d.core import Geom, GeomTriangles, GeomLines
 from panda3d.core import GeomVertexFormat, GeomVertexData, GeomVertexWriter
 from panda3d.core import Texture, GeomNode
+from panda3d.core import NodePath
 
 #from panda3d.core import render2d
 #from direct.gui.DirectGui import render2d
@@ -56,7 +57,9 @@ def draw_shape_2d(shape=None):
     
 def demo_main():
     w=wrapper()
-    draw_shape_2d([(0.1,0),(0.1,0.1),(0,0.1),(0,0)])
+    p=draw_shape_2d([(0.1,0,0),(0.1,0,0.1),(0,0,0.1),(0,0,0)])
+    while True:
+        w.b.taskMgr.step()    
     
 if __name__=="__main__":
     demo_main()
